@@ -1,0 +1,85 @@
+public CheckIn_CheckOut(string a)
+        {
+            try
+            {
+                InitializeComponent();
+                clicked_room.Hide();
+                clicked_customer.Hide();
+                txtUser.Text = a;
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        private void CheckIn_CheckOut_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnCheckInOutUC_Click(object sender, EventArgs e)
+        {
+            titleAll1.OnAfterBtnCheckInOutClick();
+            ucCustomer1.Hide();
+            ucRoom2.Hide();
+            //   UserConCheckInOut.OnClickCh();
+
+            //   UserConCheckInOut.Show();
+            clicked_checkinout.Show();
+            clicked_customer.Hide();
+            clicked_room.Hide();
+        }
+
+        private void BtnCustomerUC_Click(object sender, EventArgs e)
+        {
+
+
+            titleAll1.OnAfterBtnCustomerClick();
+            //   UserConCheckInOut.Hide();
+            ucRoom2.Hide();
+            ucCustomer1.Show();
+            clicked_customer.Show();
+            clicked_checkinout.Hide();
+            clicked_room.Hide();
+
+
+        }
+
+        private void UserConCheckInOut_AfterBtnAddClick(object sender, EventArgs e)
+        {
+            titleAll1.OnAfterBtnCustomerClick();
+            ucCustomer1.SendtoCus();
+              UserConCheckInOut1.Hide();
+            ucRoom2.Hide();
+            ucCustomer1.Show();
+            clicked_customer.Show();
+            clicked_checkinout.Hide();
+            clicked_room.Hide();
+
+        }
+        private void BtnRoomUC_Click(object sender, EventArgs e)
+        {
+            titleAll1.OnAfterBtnRoomClick();
+            ucRoom2.Show();
+            ucCustomer1.Hide();
+            //   UserConCheckInOut1.Hide();
+
+            clicked_checkinout.Hide();
+            clicked_customer.Hide();
+            clicked_room.Show();
+
+
+        }
+
+        private void BtnSignOut_Click(object sender, EventArgs e)
+        {
+            Login frm = new Login();
+            frm.Show();
+            this.Hide();
+        }
